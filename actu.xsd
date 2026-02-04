@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     <xs:element name="actu">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="breve" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titre" type="xs:string"/>
+                            <xs:element name="texte" type="xs:string"/>
+                            <xs:element name="photo" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:attribute name="src" type="xs:anyURI" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="url" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="href" type="xs:anyURI" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="theme" type="xs:string" use="required"/>
+                        <xs:attribute name="langue" type="xs:string" use="required"/>
+                        <xs:attribute name="date" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
